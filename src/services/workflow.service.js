@@ -4,8 +4,12 @@ export const saveWorkflow = async (agents) => {
   const workflow = await Workflow.findOneAndUpdate(
     {},
     { agents },
-    { new: true, upsert: true }
+    {
+      returnDocument: "after",
+      upsert: true
+    }
   );
+
   return workflow;
 };
 
