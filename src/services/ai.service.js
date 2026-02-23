@@ -21,6 +21,6 @@ export const generateAIResponse = async (prompt) => {
 
   } catch (error) {
     console.error("Gemini AI Error:", error);
-    throw new Error("AI service unavailable");
+    throw new Error(`AI service unavailable: ${error.statusText}`);
   }
 };
